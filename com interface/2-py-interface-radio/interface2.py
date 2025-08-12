@@ -21,13 +21,13 @@ def atualizar_resultado():
     # Verifica se a caixa de sleção de saudações 
     # personalizada esta marcada
     if var_check_personalizada.get():
-        saudacao = f"{saudacao}, caro(a)"
+        saudacao = f"{saudacao}, {nome}, seu arrombado"
 
     # Obter a cor favorita selecionada
     cor_favorita = combo_cor.get()
 
     # Montar mensagem final
-    mensagem = f"{saudacao} {nome}! \nVocê prefere {preferencia}. "
+    mensagem = f"{saudacao}! \nVocê prefere {preferencia}. "
     if cor_favorita:
         mensagem += f"Sua cor favorita é {cor_favorita}. "
 
@@ -47,22 +47,29 @@ def limpar_campos():
 janela = tk.Tk()
 janela.title("Exemplo de Interface")
 janela.geometry("400x500")
+janela.config(bg="#196774") 
 
 # Criar uma caixa de entrada (Entry)
 label_nome = tk.Label(janela, text="Digite seu nome:")
 label_nome.pack(pady=5)
+label_nome.config(bg="#F0941F", fg="black", padx=10, pady=5)
 caixa_texto = tk.Entry(janela, width=40)
 caixa_texto.pack(pady=5)
 
 # Criar botões de rádio
 label_preferencia = tk.Label(janela, text="Escolha sua preferência:")
 label_preferencia.pack(pady=5)
+label_preferencia.config(bg="#F0941F", fg="black", padx=10, pady=5)
 
 var_radio = tk.StringVar(value="Café")
 radio_cafe = tk.Radiobutton(janela, text="Café", variable=var_radio, value="Café")
+radio_cafe.config(bg="#196774", activebackground="#196774")
 radio_cha = tk.Radiobutton(janela, text="Chá", variable=var_radio, value="Chá")
+radio_cha.config(bg="#196774", activebackground="#196774")
 radio_suco = tk.Radiobutton(janela, text="Suco", variable=var_radio, value="Suco")
+radio_suco.config(bg="#196774", activebackground="#196774")
 radio_agua = tk.Radiobutton(janela, text="Água", variable=var_radio, value="Água")
+radio_agua.config(bg="#196774", activebackground="#196774")
 
 # .pack (Método do Tkinter que deixa as opções visíveis)
 
@@ -75,14 +82,17 @@ radio_agua.pack()
 var_check_saudacao = tk.BooleanVar()
 check_saudacao = tk.Checkbutton(janela, text="Usar saudação informal", variable=var_check_saudacao)
 check_saudacao.pack(pady=5)
+check_saudacao.config(bg="#196774", activebackground="#196774")
 
 var_check_personalizada = tk.BooleanVar()
 check_personalizada = tk.Checkbutton(janela, text="Usar saudação personalizada", variable=var_check_personalizada)
 check_personalizada.pack(pady=5)
+check_personalizada.config(bg="#196774", activebackground="#196774")
 
 # Combobox (Caixa de seleção com opções)
 label_cor = tk.Label(janela, text="Escolha sua cor favorita:")
 label_cor.pack(pady=5)
+label_cor.config(bg="#F0941F", fg="black", padx=10, pady=5)
 
 combo_cor = ttk.Combobox(janela, values=["Vermelho", "Azul", "Verde", "Amarelo", "Preto", "Branco"])
 combo_cor.set("Escolha (sua cor)")
@@ -91,13 +101,16 @@ combo_cor.pack(pady=5)
 # Criar botões (Frase e limpar)
 botao_atualizar = tk.Button(janela, text="Atualizar", command=atualizar_resultado)
 botao_atualizar.pack(pady=10)
+botao_atualizar.config(bg="#363432", fg="white", border=2, pady=10, padx=20)
 
 botao_limpar = tk.Button(janela, text="Limpar", command=limpar_campos)
 botao_limpar.pack(pady=10)
+botao_limpar.config(bg="#363432", fg="white", border=2, pady=10, padx=20)
 
 # Exibição do resultado final (Rótulo Label)
 label_resultado = tk.Label(janela, text="", wraplength=350)
 label_resultado.pack(pady=10)
+label_resultado.config(bg="#196774", fg="white")
 
 
 # Executar a janela principal
