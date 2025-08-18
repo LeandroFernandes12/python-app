@@ -87,7 +87,7 @@ class Calculadora:
         self.frame_imagem = ttk.Frame(self.janela)
         self.frame_imagem.pack(fill='both', expand=True)
 
-        imagem_path = resource_path('senai_logo.png')
+        imagem_path = resource_path('Senai.png')
         if os.path.exists(imagem_path):
             imagem = Image.open(imagem_path)
             imagem = imagem.resize((300, 100), Image.LANCZOS)  # Redimensiona a imagem
